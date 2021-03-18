@@ -25,8 +25,9 @@ ergonomic proposal:
 * Embeddable (i.e. global labels not required)
 * Accessible by default
 * Anchors / scrolling to elements in other tabs auto-select that tab
+* Selected tab preserved on navigations
 * Find in page can find content in other tabs
-* Linkable (i.e. active tab can be preserved)
+* Linkable (i.e. active tab can be shared)
 
 ## Use cases
 
@@ -185,6 +186,7 @@ shown. There are however some challenges with this:
 2. As with links, this likely only activates on clicking.
 3. Content in other tabs is not searchable / linkable.
 4. Selected tab is not linkable.
+5. Unclear if we can preserve selected tab on navigation.
 
 ### New element types
 
@@ -215,6 +217,8 @@ in the use cases, however most of the solutions have one or more challenges.
 The main open questions are:
 
 * How could you preserve tab state across navigations?
-* Should tabs be linkable? If so, how?
+* Should tabs be automatically linkable? If so, how? We could use [fragment
+  directives](https://wicg.github.io/scroll-to-text-fragment/#the-fragment-directive)
+  without breaking sites.
 * Are there missing capabilities?
 * Do we need a default style?
