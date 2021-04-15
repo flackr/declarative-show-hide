@@ -26,6 +26,7 @@ ergonomic proposal:
 * Accessible by default
 * Anchors / scrolling to elements in other tabs auto-select that tab
 * Selected tab preserved on navigations
+* Gracefully falls back if new features are required
 * Find in page can find content in other tabs
 * Linkable (i.e. active tab can be shared)
 
@@ -196,7 +197,7 @@ behaviors with an implicit hierarchy to avoid the need for unique identifiers.
 ```html
 <tabs>
   <tab>Label One</tab>
-  <tab>Lable Two</tab>
+  <tab>Label Two</tab>
   <content>Tab One Content</content>
   <content>Tab Two Content</content>
 </tabs>
@@ -205,6 +206,22 @@ behaviors with an implicit hierarchy to avoid the need for unique identifiers.
 The above could implicitly match the first `<tab>` with the first `<content>`
 that isn't itself within another content (i.e. supporting nesting). Such a
 solution could solve most of the goals but misses on the linkability:
+
+[Generic tabs](https://genericcomponents.netlify.app/generic-tabs/demo/index.html)
+proposes intermixing tabs with content which allows it to nicely fall back to
+sectioned content if not supported. e.g.
+
+```html
+<tabs>
+  <h1>Label One</h1>
+  <content>Tab One Content</content>
+  <h1>Label Two</h1>
+  <content>Tab Two Content</content>
+</tabs>
+```
+
+Naively this does not allow wrapping the tabs with elements which could make
+things like overflow or certain styles challenging.
 
 1. No way to link to a particular tab.
 
